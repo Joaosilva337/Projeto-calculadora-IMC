@@ -183,7 +183,10 @@
         let dragStartPointerX = 0;
         let dragStartPointerY = 0;
 
+        const canDragCalculator = window.matchMedia('(pointer: fine)').matches;
+
         calculatorHeader.addEventListener('pointerdown', (event) => {
+            if (!canDragCalculator) return;
             const bounds = calculator.getBoundingClientRect();
             dragOffsetX = event.clientX - bounds.left;
             dragOffsetY = event.clientY - bounds.top;
@@ -196,7 +199,7 @@
         });
 
         calculatorHeader.addEventListener('pointermove', (event) => {
-            if (!calculatorHeader.hasPointerCapture(event.pointerId)) return;
+            if (!canDragCalculator || !calculatorHeader.hasPointerCapture(event.pointerId)) return;
             const left = dragStartLeft + event.clientX - dragStartPointerX;
             const top = dragStartTop + event.clientY - dragStartPointerY;
             calculator.style.left = `${left}px`;
@@ -204,6 +207,7 @@
         });
 
         calculatorHeader.addEventListener('pointerup', (event) => {
+            if (!canDragCalculator) return;
             calculatorHeader.releasePointerCapture(event.pointerId);
         });
     </script>

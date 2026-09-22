@@ -952,3 +952,94 @@ body {
 .food-guide-grid strong {
     font-size: 1.01rem !important;
 }
+
+/* Responsive layout for phones and narrow browser windows */
+@media (max-width: 600px) {
+    body {
+        min-width: 320px;
+        padding: 16px 8px 32px;
+    }
+
+    .calculator {
+        width: 100%;
+        padding: 10px;
+        box-shadow: 0 0 0 1px rgba(0, 240, 255, 0.15), 0 0 18px rgba(0, 240, 255, 0.14);
+    }
+
+    .ds-screen {
+        padding: 12px 10px;
+    }
+
+    .calculator-header {
+        cursor: default;
+        font-size: 0.9rem !important;
+    }
+
+    .nutrition-result {
+        gap: 14px;
+    }
+
+    .macro-results,
+    .additional-results {
+        gap: 8px;
+    }
+
+    .macro-results > div,
+    .additional-results > div {
+        min-width: 0;
+        padding: 10px 5px;
+    }
+
+    .result-label,
+    .result-unit {
+        font-size: 0.72rem !important;
+        overflow-wrap: anywhere;
+    }
+
+    .calorie-result strong {
+        font-size: clamp(2rem, 11vw, 2.97rem) !important;
+    }
+
+    .macro-results strong,
+    .additional-results strong {
+        font-size: clamp(1.1rem, 6vw, 1.75rem) !important;
+    }
+
+    .additional-results .result-label,
+    .additional-results .result-unit,
+    .result-description {
+        font-size: 0.64rem !important;
+    }
+
+    .form-row {
+        gap: 8px;
+    }
+
+    .nutrition-form input,
+    .nutrition-form select {
+        min-height: 48px;
+        padding: 8px;
+        font-size: 1rem !important;
+    }
+
+    .calculate-button {
+        min-height: 52px;
+        font-size: 0.82rem !important;
+    }
+
+    .food-guide-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 380px) {
+    .form-row,
+    .macro-results {
+        grid-template-columns: 1fr;
+    }
+
+    .steps-result {
+        grid-column: auto;
+    }
+}
